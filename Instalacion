@@ -1,173 +1,186 @@
-1. Actualización de la máquina
-Primero, actualiza los repositorios e instala las últimas actualizaciones disponibles:
+1. Actualización de la máquina:
 
 sudo apt update
 sudo apt upgrade
 
-2. Instalación del servidor web Apache2
-Para instalar el servidor web Apache, utiliza el siguiente comando:
+
+2. Instalación de Apache:
 
 sudo apt install -y apache2
 
-Para verificar que Apache se ha instalado correctamente, puedes abrir tu navegador y acceder a la IP del servidor. Si todo está bien configurado, deberías ver la página de bienvenida de Apache.
 
-3. Instalación del servidor de bases de datos MySQL
-Instalar MySQL Server:
+3. Instalación de MySQL:
 
 sudo apt install -y mysql-server
 
-4. Instalación de PHP y bibliotecas necesarias
-A continuación, instala PHP y las bibliotecas necesarias para integrarlo con Apache y MySQL:
+
+4. Instalación de PHP:
 
 sudo apt install -y php libapache2-mod-php
 sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
 
-Reinicia Apache para que los módulos de PHP se carguen correctamente:
+
+5. Reinicio de Apache:
 
 sudo systemctl restart apache2
 
-5. Configuración de MySQL
-Accede a la consola de MySQL:
+
+6. Configuración de MySQL:
+6.1 Acceder a MySQL:
 
 sudo mysql
 
-5.1. Creación de la base de datos
-Desde la consola de MySQL, crea una base de datos llamada bbdd (o el nombre que prefieras):
+
+7. Crear la base de datos:
 
 CREATE DATABASE bbdd;
 
-5.2. Creación de un usuario MySQL
-A continuación, crea un usuario con acceso a la base de datos bbdd. El siguiente comando crea un usuario llamado usuario con la contraseña password, y le da acceso solo desde localhost:
+
+8. Crear el usuario:
 
 CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
-5.3. Otorgar privilegios al usuario
-Para otorgar privilegios completos al usuario para trabajar con la base de datos bbdd, ejecuta el siguiente comando:
+
+9. Otorgar privilegios:
 
 GRANT ALL ON bbdd.* TO 'usuario'@'localhost';
 
-Finalmente, sal de la consola de MySQL:
+
+10. Salir de MySQL:
 
 exit
 
-5.4. Comprobar conexión
-Prueba que puedes conectarte a MySQL con el usuario y la contraseña creados:
+
+11. Verificar conexión:
 
 mysql -u usuario -p
 
-6. Permitir la conexión remota a MySQL
-Por defecto, MySQL solo permite conexiones desde localhost. Si deseas permitir conexiones desde otras máquinas, es necesario modificar la configuración.
 
-6.1. Modificar archivo de configuración de MySQL
-Edita el archivo de configuración de MySQL para permitir conexiones desde cualquier IP (o desde una IP específica si es necesario). Abre el archivo mysqld.cnf con un editor de texto, por ejemplo, vim:
+12.  Permitir conexiones remotas:
+12.1 Editar mysqld.cnf:
 
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 
-Busca la línea bind-address y cámbiala a 0.0.0.0 para permitir conexiones desde cualquier máquina:
+
+13. Cambiar bind-address:
 
 bind-address = 0.0.0.0
 
-Guarda los cambios y cierra el editor.
 
-6.2. Reiniciar MySQL
-Para aplicar los cambios, reinicia el servicio de MySQL:
+14. Reiniciar MySQL:
 
 sudo systemctl restart mysql
 
-7. Creación de un usuario para acceso remoto
-Ahora, para permitir que un usuario se conecte desde una máquina remota (por ejemplo, desde la IP 192.168.22.100), crea un nuevo usuario y asigna privilegios adecuados:
+
+15. Crear un usuario para acceso remoto:
+16. Crear un usuario para una IP remota:
 
 CREATE USER 'usuario'@'192.168.22.100' IDENTIFIED WITH mysql_native_password BY 'password';
 
-Luego, otorga privilegios al nuevo usuario sobre la base de datos bbdd:
+
+17. Otorgar privilegios:
 
 GRANT ALL ON bbdd.* TO 'usuario'@'192.168.22.100';
 
-Finalmente, sal de la consola de MySQL:
+
+18. Salir de MySQL:
 
 exit
 
-8. Verificación de la conexión remota
-Desde una máquina remota, intenta conectarte a MySQL con el usuario y la contraseña creados:
+
+19. Verificar la conexión remota:
 
 mysql -u usuario -p -h <IP_DEL_SERVIDOR_MYSQL>
 
-9. Configuras el owncloud 
 
-10. Luego copias los archivos de la aplicación web al servidor
-Primero, asegurémonos de tener el archivo comprimido de la aplicación web en una ubicación accesible. En este ejemplo, se ha descargado el archivo app-web.zip en el directorio ~/Baixades (el directorio "Descargas" en catalán). Si el idioma de tu sistema es diferente, deberás adaptar el comando de acuerdo con la ruta en tu idioma.
+20. Actualizar listas de paquetes e instalar actualizaciones:
 
-10.1. Copiar el archivo al directorio de Apache
-Para copiar el archivo comprimido de la aplicación web al directorio raíz de Apache (/var/www/html), utiliza el siguiente comando:
+sudo apt update
+sudo apt upgrade -y
+
+
+21. Instalar los requisitos previos para PPA:
+
+sudo apt install software-properties-common -y
+
+
+22. Agregar el PPA para PHP:
+
+LC_ALL=C.UTF-8 sudo add-apt-repository ppa:ondrej/php -y
+
+
+23. Actualizar repositorios:
+
+sudo apt update
+
+
+24. Instalar PHP 7.4 y las extensiones necesarias:
+
+sudo apt install php7.4 -y
+sudo apt install -y php libapache2-mod-php7.4
+sudo apt install -y php7.4-fpm php7.4-common php7.4-mbstring php7.4-xmlrpc php7.4-soap php7.4-gd php7.4-xml php7.4-intl php7.4-mysql php7.4-cli php7.4-ldap php7.4-zip php7.4-curl
+
+
+25. Seleccionar la versión de PHP predeterminada:
+
+sudo update-alternatives --config php
+
+
+26. Activar los módulos necesarios de Apache:
+
+sudo a2enmod proxy_fcgi setenvif
+sudo a2enconf php7.4-fpm
+
+
+27. Reiniciar Apache:
+
+sudo service apache2 restart
+
+
+28. Copiar el archivo ZIP de la aplicación web a /var/www/html:
 
 sudo cp ~/Baixades/app-web.zip /var/www/html
-Nota: Si la carpeta "Baixades" no existe, debes modificar el comando para reflejar la ruta correcta donde descargaste el archivo ZIP.
 
-10.2. Acceder al directorio de Apache
-Luego, accedemos al directorio donde vamos a trabajar, que es /var/www/html, con el siguiente comando:
+
+29. Acceder al directorio de Apache:
 
 cd /var/www/html
 
-10.3. Descomprimir el archivo ZIP
-Descomprime el archivo ZIP que contiene la aplicación web con el siguiente comando:
+
+30. Descomprimir el archivo ZIP:
 
 sudo unzip app-web.zip
 
-Esto descomprimirá el contenido del archivo ZIP en el directorio actual (/var/www/html).
 
-10.4. Mover los archivos a la ubicación adecuada
-A continuación, movemos el contenido descomprimido de la carpeta app-web a la raíz de /var/www/html. El nombre de la carpeta descomprimida puede variar, por lo que debes adaptarlo a la carpeta que se haya creado al descomprimir el archivo.
+31. Mover los archivos descomprimidos a la ubicación correcta:
 
 sudo cp -R app-web/. /var/www/html
 
-10.5. Eliminar la carpeta descomprimida
-Una vez que los archivos hayan sido copiados correctamente, puedes eliminar la carpeta descomprimida (app-web) para mantener tu sistema limpio:
+
+32. Eliminar la carpeta descomprimida:
 
 sudo rm -rf app-web/
 
-10.6. Eliminar el archivo index.html predeterminado de Apache
-El archivo index.html que viene por defecto con Apache a veces puede interferir con el acceso a tu aplicación web. Por eso, eliminamos este archivo para evitar conflictos:
+
+33. Eliminar el archivo index.html de Apache:
 
 sudo rm -rf /var/www/html/index.html
 
-11. Configurar permisos de los archivos de la aplicación web
-Ahora que los archivos de la aplicación web están en el directorio /var/www/html, es necesario configurar los permisos adecuados para que Apache pueda acceder a ellos sin problemas.
 
-11.1. Establecer permisos correctos
-Establece los permisos de los archivos a 775 para permitir la escritura, lectura y ejecución a los propietarios y al grupo (en este caso, Apache):
+34. Establecer permisos en los archivos:
 
-cd /var/www/html
 sudo chmod -R 775 .
-
-11.2. Cambiar propietario y grupo
-Cambia el propietario de los archivos a usuario y el grupo a www-data, que es el grupo usado por Apache en la mayoría de los sistemas Linux:
-
 sudo chown -R usuario:www-data .
 
-Esto asegura que Apache tenga los permisos necesarios para servir los archivos y que el usuario usuario (el que tiene acceso a la base de datos) pueda manipular los archivos si es necesario.
 
-12. Acceder a la aplicación web desde el navegador
-Con los archivos de la aplicación correctamente colocados y los permisos configurados, abre tu navegador web y accede a la siguiente dirección:
+35. Proporcionar la información de la base de datos:
 
-http://localhost
-Si estás accediendo desde otra máquina, sustituye localhost por la dirección IP de tu servidor.
-
-Deberías ver la página de instalación de la aplicación web. Si todo está configurado correctamente, aparecerá el asistente de instalación, que te pedirá información sobre la base de datos y el usuario administrador.
-
-12. Configurar la base de datos en la aplicación web
-Durante la instalación, la aplicación web te pedirá que introduzcas los detalles de la base de datos. Asegúrate de proporcionar la siguiente información:
-
-Usuario de la base de datos: usuario
-Contraseña de la base de datos: password
+Usuario: usuario
+Contraseña: password
 Base de datos: bbdd
 Dominio: localhost
-Con esta información, la aplicación podrá conectarse correctamente a la base de datos MySQL que configuramos anteriormente.
 
-13. Crear un usuario administrador
-En la siguiente pantalla, el instalador de la aplicación web te pedirá que crees un usuario administrador para acceder a la aplicación. Completa los campos con el nombre de usuario y la contraseña que desees, y guarda los cambios.
 
-14. Finalizar la instalación
-Una vez que hayas configurado la base de datos y creado un usuario administrador, la instalación de la aplicación web debería completarse. Ahora puedes acceder a la aplicación en cualquier momento usando la URL:
+36. Acceder a la instalación de la aplicación web desde el navegador:
 
 http://localhost
-
