@@ -214,14 +214,6 @@ sudo chown -R usuario:www-data .
 
 Esto asegura que Apache tenga los permisos necesarios para servir los archivos y que el usuario usuario (el que tiene acceso a la base de datos) pueda manipular los archivos si es necesario.
 
-12. Acceder a la aplicación web desde el navegador
-Con los archivos de la aplicación correctamente colocados y los permisos configurados, abre tu navegador web y accede a la siguiente dirección:
-
-http://localhost
-Si estás accediendo desde otra máquina, sustituye localhost por la dirección IP de tu servidor.
-
-Deberías ver la página de instalación de la aplicación web. Si todo está configurado correctamente, aparecerá el asistente de instalación, que te pedirá información sobre la base de datos y el usuario administrador.
-
 12. Configurar la base de datos en la aplicación web
 Durante la instalación, la aplicación web te pedirá que introduzcas los detalles de la base de datos. Asegúrate de proporcionar la siguiente información:
 
