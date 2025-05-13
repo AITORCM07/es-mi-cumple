@@ -2,11 +2,11 @@
 
 Primero, actualiza los repositorios e instala las últimas actualizaciones disponibles:
 
-sudo apt update
+*sudo apt update*
 
 ![INSTALACION](unnamed.png)
 
-sudo apt upgrade
+*sudo apt upgrade*
 
 ![INSTALACION](unnamed(1).png)
 
@@ -15,7 +15,7 @@ sudo apt upgrade
 
 Para instalar el servidor web Apache, utiliza el siguiente comando:
 
-sudo apt install -y apache2
+*sudo apt install -y apache2*
 
 ![INSTALACION](unnamed(2).png)
 
@@ -24,7 +24,7 @@ sudo apt install -y apache2
 
 Instalar MySQL Server:
 
-sudo apt install -y mysql-server
+*sudo apt install -y mysql-server*
 
 ![INSTALACION](unnamed(3).png)
 
@@ -33,17 +33,17 @@ sudo apt install -y mysql-server
 
 A continuación, instala PHP y las bibliotecas necesarias para integrarlo con Apache y MySQL:
 
-sudo apt install -y php libapache2-mod-php
+*sudo apt install -y php libapache2-mod-php*
 
 ![INSTALACION](unnamed(4).png)
 
-sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
+*sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl*
 
 ![INSTALACION](unnamed(5).png)
 
 **5. REINICIA APACHE PARA QUE LOS MODULOS DE PHP SE CARGUEN CORRECTAMENTE:**
 
-sudo systemctl restart apache2
+*sudo systemctl restart apache2*
 
 ![INSTALACION](unnamed(6).png)
 
