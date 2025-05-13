@@ -3,7 +3,13 @@
 Primero, actualiza los repositorios e instala las últimas actualizaciones disponibles:
 
 sudo apt update
+
+![Edición de perfil en Moodle](unnamed.png)
+
 sudo apt upgrade
+
+![Edición de perfil en Moodle](unnamed.png)
+
 
 **2. INSTALACIÓN DEL SERVIDOR WEB APACHE2**
 
