@@ -44,6 +44,7 @@ Prueba que puedes conectarte a MySQL con el usuario y la contraseña creados:
 
 ![INSTALACION](fotito6.png)
 
+**____________________________________________________________________________________________________________________________________________________**
 
 **2. Modificar archivo de configuración de MySQL**
 Edita el archivo de configuración de MySQL para permitir conexiones desde cualquier IP (o desde una IP específica si es necesario). Abre el archivo mysqld.cnf con un editor de texto, por ejemplo, vim:
@@ -62,6 +63,7 @@ Para aplicar los cambios, reinicia el servicio de MySQL:
 
 *sudo systemctl restart mysql*
 
+**____________________________________________________________________________________________________________________________________________________**
 
 **3. Creación de un usuario para acceso remoto**
 Ahora, para permitir que un usuario se conecte desde una máquina remota (por ejemplo, desde la IP 192.168.22.100), crea un nuevo usuario y asigna privilegios adecuados:
@@ -76,12 +78,14 @@ Finalmente, sal de la consola de MySQL:
 
 exit
 
+**____________________________________________________________________________________________________________________________________________________**
 
 **4. Verificación de la conexión remota**
 Desde una máquina remota, intenta conectarte a MySQL con el usuario y la contraseña creados:
 
 *mysql -u usuario -p -h <IP_DEL_SERVIDOR_MYSQL>*
 
+**____________________________________________________________________________________________________________________________________________________**
 
 **5. Configuras el owncloud** 
 
@@ -162,6 +166,7 @@ Después de realizar todos los cambios, es necesario reiniciar Apache para que l
 
 *sudo service apache2 restart*
 
+**____________________________________________________________________________________________________________________________________________________**
 
 **6. Luego copias los archivos de la aplicación web al servidor**
 Primero, asegurémonos de tener el archivo comprimido de la aplicación web en una ubicación accesible. En este ejemplo, se ha descargado el archivo app-web.zip en el directorio ~/Baixades (el directorio "Descargas" en catalán). Si el idioma de tu sistema es diferente, deberás adaptar el comando de acuerdo con la ruta en tu idioma.
@@ -205,6 +210,7 @@ El archivo index.html que viene por defecto con Apache a veces puede interferir 
 
 *sudo rm -rf /var/www/html/index.html*
 
+**____________________________________________________________________________________________________________________________________________________**
 
 **7. Configurar permisos de los archivos de la aplicación web**
 Ahora que los archivos de la aplicación web están en el directorio /var/www/html, es necesario configurar los permisos adecuados para que Apache pueda acceder a ellos sin problemas.
@@ -224,6 +230,7 @@ Cambia el propietario de los archivos a usuario y el grupo a www-data, que es el
 
 Esto asegura que Apache tenga los permisos necesarios para servir los archivos y que el usuario usuario (el que tiene acceso a la base de datos) pueda manipular los archivos si es necesario.
 
+**____________________________________________________________________________________________________________________________________________________**
 
 **8. Configurar la base de datos en la aplicación web**
 Durante la instalación, la aplicación web te pedirá que introduzcas los detalles de la base de datos. Asegúrate de proporcionar la siguiente información:
@@ -234,10 +241,12 @@ Durante la instalación, la aplicación web te pedirá que introduzcas los detal
 *Dominio: localhost*
 *Con esta información, la aplicación podrá conectarse correctamente a la base de datos MySQL que configuramos anteriormente.*
 
+____________________________________________________________________________________________________________________________________________________
 
 **9. Crear un usuario administrador**
 En la siguiente pantalla, el instalador de la aplicación web te pedirá que crees un usuario administrador para acceder a la aplicación. Completa los campos con el nombre de usuario y la contraseña que desees, y guarda los cambios.
 
+____________________________________________________________________________________________________________________________________________________
 
 **10. Finalizar la instalación**
 Una vez que hayas configurado la base de datos y creado un usuario administrador, la instalación de la aplicación web debería completarse. Ahora puedes acceder a la aplicación en cualquier momento usando la URL:
