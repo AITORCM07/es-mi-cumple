@@ -123,5 +123,6 @@ A continuación, instala PHP y las bibliotecas necesarias para integrarlo con Ap
 ![INSTALACION](foto7.png)
 
 
+**____________________________________________________________________________________________________________________________________________________**
 
 **3. AHORA TIENES QUE CONFIGURAR EL OWNCLOUD**
