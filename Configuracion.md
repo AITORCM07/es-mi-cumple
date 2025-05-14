@@ -3,11 +3,15 @@ Accede a la consola de MySQL:
 
 *sudo mysql*
 
+![INSTALACION](fotito1.png)
+
 
 **1.1. Creación de la base de datos**
 Desde la consola de MySQL, crea una base de datos llamada bbdd (o el nombre que prefieras):
 
 *CREATE DATABASE bbdd;*
+
+![INSTALACION](fotito2.png)
 
 
 **1.2. Creación de un usuario MySQL**
@@ -15,21 +19,30 @@ A continuación, crea un usuario con acceso a la base de datos bbdd. El siguient
 
 *CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';*
 
+![INSTALACION](fotito3.png)
+
 
 **1.3. Otorgar privilegios al usuario**
 Para otorgar privilegios completos al usuario para trabajar con la base de datos bbdd, ejecuta el siguiente comando:
 
 *GRANT ALL ON bbdd. TO 'usuario'@'localhost';*
 
+![INSTALACION](fotito4.png)
+
+
 Finalmente, sal de la consola de MySQL:
 
 *exit*
+
+![INSTALACION](fotito5.png)
 
 
 **1.4. Comprobar conexión**
 Prueba que puedes conectarte a MySQL con el usuario y la contraseña creados:
 
 *mysql -u usuario -p*
+
+![INSTALACION](fotito6.png)
 
 
 **2. Modificar archivo de configuración de MySQL**
