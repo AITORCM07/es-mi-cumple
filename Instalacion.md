@@ -69,6 +69,7 @@ Actualitza les llistes de paquets i actualitza tots els paquets existents al vos
 
 
 
+
 **2.1. ACTUALIZACIÓN DE LA MÁQUINA**
 
 Primero, actualiza los repositorios e instala las últimas actualizaciones disponibles:
