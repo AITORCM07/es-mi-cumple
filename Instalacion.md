@@ -68,7 +68,7 @@ Actualitza les llistes de paquets i actualitza tots els paquets existents al vos
 ![INSTALACION](FOTO10.png)
 
 
-
+**_____________________________________________________________________________________________________________________________________________________________________________________**
 
 **2.1. ACTUALIZACIÓN DE LA MÁQUINA**
 
