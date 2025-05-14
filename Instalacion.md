@@ -45,6 +45,6 @@ A continuación, instala PHP y las bibliotecas necesarias para integrarlo con Ap
 
 *(sudo systemctl restart apache2)*
 
-![INSTALACION](unnamed(6).png)
+![INSTALACION](foto7.png)
 
 **6. AHORA TIENES QUE CONFIGURARLO**
