@@ -76,12 +76,12 @@ Primero, actualiza los repositorios e instala las últimas actualizaciones dispo
 
 *(sudo apt update)*
 
-![INSTALACION](fotito1.png)
+![INSTALACION](FOTONES1.png)
 
 
 *(sudo apt upgrade)*
 
-![INSTALACION](fotito2.png)
+![INSTALACION](FOTONES2.png)
 
 
 **2.2. INSTALACIÓN DEL SERVIDOR WEB APACHE2**
@@ -90,7 +90,7 @@ Para instalar el servidor web Apache, utiliza el siguiente comando:
 
 *(sudo apt install -y apache2)*
 
-![INSTALACION](fotito3.png)
+![INSTALACION](FOTONES3.png)
 
 
 **2.3. INSTALACIÓN DEL SERVIDOR DE BASES DE DATOS MYSQL**
@@ -99,7 +99,7 @@ Instalar MySQL Server:
 
 *(sudo apt install -y mysql-server)*
 
-![INSTALACION](fotito4.png)
+![INSTALACION](FOTONES4.png)
 
 
 **2.4. INSTALACIÓN DE PHP Y BIBLIOTECAS NECESARIAS**
@@ -108,21 +108,21 @@ A continuación, instala PHP y las bibliotecas necesarias para integrarlo con Ap
 
 *(sudo apt install -y php libapache2-mod-php)*
 
-![INSTALACION](fotito4.png)
+![INSTALACION](FOTONES5.png)
 
 
 *(sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl)*
 
-![INSTALACION](fotito5.png)
+![INSTALACION](FOTONES6.png)
 
 
 **2.5. REINICIA APACHE PARA QUE LOS MODULOS DE PHP SE CARGUEN CORRECTAMENTE:**
 
 *(sudo systemctl restart apache2)*
 
-![INSTALACION](fotito6.png)
+![INSTALACION](FOTONES7.png)
 
 
 **____________________________________________________________________________________________________________________________________________________**
 
-**3. AHORA TIENES QUE CONFIGURAR EL OWNCLOUD**
+**3. AHORA TIENES QUE CONFIGURAR**
