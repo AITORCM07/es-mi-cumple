@@ -151,8 +151,6 @@ ________________________________________________________________________________
 **9. Crear un usuario administrador**
 En la siguiente pantalla, el instalador de la aplicación web te pedirá que crees un usuario administrador para acceder a la aplicación. Completa los campos con el nombre de usuario y la contraseña que desees, y guarda los cambios.
 
-![INSTALACION](fotito17.png)
-
 ____________________________________________________________________________________________________________________________________________________
 
 **10. Finalizar la instalación**
