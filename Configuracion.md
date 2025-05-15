@@ -3,7 +3,7 @@ Accede a la consola de MySQL:
 
 *sudo mysql*
 
-![INSTALACION](fotito1.png)
+![INSTALACION](fotito01.png)
 
 
 **1.1. Creación de la base de datos**
@@ -11,7 +11,7 @@ Desde la consola de MySQL, crea una base de datos llamada bbdd (o el nombre que 
 
 *CREATE DATABASE bbdd;*
 
-![INSTALACION](fotito2.png)
+![INSTALACION](fotito02.png)
 
 
 **1.2. Creación de un usuario MySQL**
@@ -19,7 +19,7 @@ A continuación, crea un usuario con acceso a la base de datos bbdd. El siguient
 
 *CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';*
 
-![INSTALACION](fotito3.png)
+![INSTALACION](fotito03.png)
 
 
 **1.3. Otorgar privilegios al usuario**
@@ -27,14 +27,14 @@ Para otorgar privilegios completos al usuario para trabajar con la base de datos
 
 *GRANT ALL ON bbdd. TO 'usuario'@'localhost';*
 
-![INSTALACION](fotito4.png)
+![INSTALACION](fotito04.png)
 
 
 Finalmente, sal de la consola de MySQL:
 
 *exit*
 
-![INSTALACION](fotito5.png)
+![INSTALACION](fotito05.png)
 
 
 **1.4. Comprobar conexión**
@@ -42,7 +42,7 @@ Prueba que puedes conectarte a MySQL con el usuario y la contraseña creados:
 
 *mysql -u usuario -p*
 
-![INSTALACION](fotito6.png)
+![INSTALACION](fotito06.png)
 
 **____________________________________________________________________________________________________________________________________________________**
 
@@ -58,6 +58,9 @@ Primero, asegurémonos de tener el archivo comprimido de la aplicación web en u
 Para copiar el archivo comprimido de la aplicación web al directorio raíz de Apache (/var/www/html), utiliza el siguiente comando:
 
 *sudo cp ~/Baixades/app-web.zip /var/www/html*
+
+![INSTALACION](fotito07.png)
+
 Nota: Si la carpeta "Baixades" no existe, debes modificar el comando para reflejar la ruta correcta donde descargaste el archivo ZIP.
 
 
@@ -66,11 +69,14 @@ Luego, accedemos al directorio donde vamos a trabajar, que es /var/www/html, con
 
 *cd /var/www/html*
 
+![INSTALACION](fotito08.png)
 
 **6.3. Descomprimir el archivo ZIP**
 Descomprime el archivo ZIP que contiene la aplicación web con el siguiente comando:
 
 *sudo unzip app-web.zip*
+
+![INSTALACION](fotito09.png)
 
 Esto descomprimirá el contenido del archivo ZIP en el directorio actual (/var/www/html).
 
@@ -78,19 +84,26 @@ Esto descomprimirá el contenido del archivo ZIP en el directorio actual (/var/w
 **6.4. Mover los archivos a la ubicación adecuada**
 A continuación, movemos el contenido descomprimido de la carpeta app-web a la raíz de /var/www/html. El nombre de la carpeta descomprimida puede variar, por lo que debes adaptarlo a la carpeta que se haya creado al descomprimir el archivo.
 
+![INSTALACION](fotito18.png)
+
 *sudo cp -R app-web/. /var/www/html*
 
+![INSTALACION](fotito10.png)
 
 **6.5. Eliminar la carpeta descomprimida**
 Una vez que los archivos hayan sido copiados correctamente, puedes eliminar la carpeta descomprimida (app-web) para mantener tu sistema limpio:
 
 *sudo rm -rf app-web/*
 
+![INSTALACION](fotito11.png)
+
 
 **6.6. Eliminar el archivo index.html predeterminado de Apache**
 El archivo index.html que viene por defecto con Apache a veces puede interferir con el acceso a tu aplicación web. Por eso, eliminamos este archivo para evitar conflictos:
 
 *sudo rm -rf /var/www/html/index.html*
+
+![INSTALACION](fotito12.png)
 
 **____________________________________________________________________________________________________________________________________________________**
 
@@ -102,13 +115,20 @@ Ahora que los archivos de la aplicación web están en el directorio /var/www/ht
 Establece los permisos de los archivos a 775 para permitir la escritura, lectura y ejecución a los propietarios y al grupo (en este caso, Apache):
 
 *cd /var/www/html*
+
+![INSTALACION](fotito13.png)
+
 *sudo chmod -R 775 .*
+
+![INSTALACION](fotito14.png)
 
 
 **7.2. Cambiar propietario y grupo**
 Cambia el propietario de los archivos a usuario y el grupo a www-data, que es el grupo usado por Apache en la mayoría de los sistemas Linux:
 
 *sudo chown -R usuario:www-data .*
+
+![INSTALACION](fotito15.png)
 
 Esto asegura que Apache tenga los permisos necesarios para servir los archivos y que el usuario usuario (el que tiene acceso a la base de datos) pueda manipular los archivos si es necesario.
 
@@ -123,10 +143,15 @@ Durante la instalación, la aplicación web te pedirá que introduzcas los detal
 *Dominio: localhost*
 *Con esta información, la aplicación podrá conectarse correctamente a la base de datos MySQL que configuramos anteriormente.*
 
+![INSTALACION](fotito16.png)
+
+
 ____________________________________________________________________________________________________________________________________________________
 
 **9. Crear un usuario administrador**
 En la siguiente pantalla, el instalador de la aplicación web te pedirá que crees un usuario administrador para acceder a la aplicación. Completa los campos con el nombre de usuario y la contraseña que desees, y guarda los cambios.
+
+![INSTALACION](fotito17.png)
 
 ____________________________________________________________________________________________________________________________________________________
 
